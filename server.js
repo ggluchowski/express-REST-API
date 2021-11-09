@@ -1,10 +1,4 @@
 const express = require('express');
-const path = require('path');
-
-const { response } = require('express');
-
-const db = require('./db/db');
-// ewentualnie cors https://www.npmjs.com/package/cors
 
 const app = express();
 app.use(express.urlencoded({ extended: false })); //umozliwienie obslugi formularzy x-www-form-urlencoded
