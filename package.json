@@ -1,0 +1,16 @@
+{
+  "name": "express-REST-API",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:ggluchowski/express-REST-API.git",
+  "author": "Grzegorz Głuchowski <ggrzegorz89@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "npx nodemon server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.14",
+    "uuid": "^8.3.2"
+  }
+}
