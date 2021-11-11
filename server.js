@@ -1,8 +1,13 @@
 const express = require('express');
+const cors = require('cors');
 
 const app = express();
 app.use(express.urlencoded({ extended: false })); //umozliwienie obslugi formularzy x-www-form-urlencoded
 app.use(express.json());
+app.use(cors({
+  origin: 'http://localhost:3000',
+}
+));
 
 // import routes
 const testimonialsRoutes = require('./routes/testimonials.routes');
