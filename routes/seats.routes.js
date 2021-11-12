@@ -18,7 +18,6 @@ router.route('/seats').post((req, res) => {
   const { day, seat, client, email } = req.body;
   let status = 0;
   for (let element of db.seats){
-    console.log('element: ', element.day, element.seat);
     if(element.day === day && element.seat === seat){
       status = 1;
     } else {

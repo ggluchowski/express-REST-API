@@ -31,9 +31,7 @@ class OrderTicketForm extends React.Component {
       this.setState({
       time: this.state.time - 1,
     })
-    console.log(this.state.time);
     if (this.state.time === 0) {
-
       this.setState({
         time: 120,
       })
