@@ -15,10 +15,6 @@ const concertsRoutes = require('./routes/concerts.routes');
 const seatsRoutes = require('./routes/seats.routes');
 
 // endpoints
-app.get('/', (req, res) => {
-  res.send('Serwer działa');
-});
-
 app.use('/api', testimonialsRoutes);
 app.use('/api', concertsRoutes);
 app.use('/api', seatsRoutes);
