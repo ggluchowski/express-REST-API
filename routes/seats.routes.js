@@ -17,18 +17,31 @@ router.route('/seats/:id').get((req, res) => {
 router.route('/seats').post((req, res) => {
   const { day, seat, client, email } = req.body;
   let status = 0;
-  for (let element of db.seats){
-    if(element.day === day && element.seat === seat){
+  for (let element of db.seats) {
+    if (element.day === day && element.seat === seat) {
       status = 1;
     } else {
       status = 0;
     }
   }
 
-  if(status === 1) {
-    return res.status(400).json({message: 'The slot is already taken...'});
+  if (status === 1) {
+    return res.status(400).json({ message: 'The slot is already taken...' });
   } else {
     db.seats.push({ id: uuidv4(), day: day, seat: seat, client: client, email: email });
+
+    //?????
+    //https://stackoverflow.com/questions/18856190/use-socket-io-inside-a-express-routes-file
+    const socket = req.app.get('socket');
+    socket.broadcast.emit('seatsUpdated', db.seats)
+
+
+    // const io = req.io;
+    // io.on('connection', (socket) => {
+    //   console.log('Wysyłam dane');
+    //   req.io.socket.broadcast.emit('seatsUpdated', db.seats);
+    // });
+
     return res.status(200).json({ message: 'OK' });
   }
 });

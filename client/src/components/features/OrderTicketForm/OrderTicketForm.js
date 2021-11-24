@@ -19,8 +19,8 @@ class OrderTicketForm extends React.Component {
   }
 
   componentDidMount() {
-    this.startTimer();
-    this.props.loadSeats();
+    //this.startTimer();
+    //this.props.loadSeats();
   }
 
   componentWillUnmount() {
@@ -74,7 +74,7 @@ class OrderTicketForm extends React.Component {
 
     if (order.client && order.email && order.day && order.seat) {
       await addSeat(order);
-      this.props.loadSeats();
+      //this.props.loadSeats();
       this.setState({
         order: {
           client: '',
