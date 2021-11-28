@@ -6,11 +6,15 @@ import './SeatChooser.scss';
 
 class SeatChooser extends React.Component {
 
-  //????
   componentDidMount() {
     this.socket = io(process.env.PORT || 'http://localhost:8000');
-    const { loadSeats, loadSeatsData } = this.props;
+    const { loadSeats } = this.props;
     loadSeats();
+  }
+
+  componentDidUpdate() {
+    this.socket = io(process.env.PORT || 'http://localhost:8000');
+    const { loadSeatsData } = this.props;
     this.socket.on('seatsUpdated', (seats) => loadSeatsData(seats));
   }
 
