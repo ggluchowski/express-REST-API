@@ -1,67 +1,16 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../db/db');
-const { v4: uuidv4 } = require('uuid');
-const { findIndex, findElement } = require('../functions');
 
-router.route('/seats').get((req, res) => {
-  res.json(db.seats);
-});
+const SeatController = require('../controllers/seats.controller');
 
-router.route('/seats/:id').get((req, res) => {
-  const id = req.params.id;
-  const resp = findElement(id, db.seats);
-  res.json(resp);
-});
+router.route('/seats').get(SeatController.getAll);
 
-router.route('/seats').post((req, res) => {
-  const { day, seat, client, email } = req.body;
-  let status = 0;
-  for (let element of db.seats) {
-    if (element.day === day && element.seat === seat) {
-      status = 1;
-    } else {
-      status = 0;
-    }
-  }
+router.route('/seats/:id').get(SeatController.getId);
 
-  if (status === 1) {
-    return res.status(400).json({ message: 'The slot is already taken...' });
-  } else {
-    db.seats.push({ id: uuidv4(), day: day, seat: seat, client: client, email: email });
+router.route('/seats').post(SeatController.post);
 
-    //?????
-    //https://stackoverflow.com/questions/18856190/use-socket-io-inside-a-express-routes-file
-    const socket = req.app.get('socket');
-    socket.broadcast.emit('seatsUpdated', db.seats)
+router.route('/seats/:id').put(SeatController.put);
 
-
-    // const io = req.io;
-    // io.on('connection', (socket) => {
-    //   console.log('Wysyłam dane');
-    //   req.io.socket.broadcast.emit('seatsUpdated', db.seats);
-    // });
-
-    return res.status(200).json({ message: 'OK' });
-  }
-});
-
-router.route('/seats/:id').put((req, res) => {
-  const id = req.params.id;
-  const { day, seat, client, email } = req.body;
-  const index = findIndex(id, db.seats);
-  db.seats[index].day = day;
-  db.seats[index].seat = seat;
-  db.seats[index].client = client;
-  db.seats[index].email = email;
-  res.json({ message: 'OK' });
-});
-
-router.route('/seats/:id').delete((req, res) => {
-  const id = req.params.id;
-  const index = findIndex(id, db.seats);
-  db.seats.splice(index, 1);
-  res.json({ message: 'OK' });
-});
+router.route('/seats/:id').delete(SeatController.delete);
 
 module.exports = router;

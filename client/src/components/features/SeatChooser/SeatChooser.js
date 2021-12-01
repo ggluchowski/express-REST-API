@@ -15,7 +15,7 @@ class SeatChooser extends React.Component {
   componentDidUpdate() {
     this.socket = io(process.env.PORT || 'http://localhost:8000');
     const { loadSeatsData } = this.props;
-    this.socket.on('seatsUpdated', (seats) => loadSeatsData(seats));
+    this.socket.on('seatsUpdated', async (seats) => await loadSeatsData(seats));
   }
 
   isTaken = (seatId) => {
