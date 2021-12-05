@@ -1,0 +1,145 @@
+[{
+  "_id": {
+    "$oid": "61a41632bba131965cf739b9"
+  },
+  "id": "1",
+  "day": 1,
+  "seat": 3,
+  "client": "Amanda Doe",
+  "email": "amandadoe@example.com"
+},{
+  "_id": {
+    "$oid": "61a41632bba131965cf739ba"
+  },
+  "id": "2",
+  "day": 1,
+  "seat": 9,
+  "client": "Curtis Johnson",
+  "email": "curtisj@example.com"
+},{
+  "_id": {
+    "$oid": "61a41632bba131965cf739bb"
+  },
+  "id": "3",
+  "day": 1,
+  "seat": 10,
+  "client": "Felix McManara",
+  "email": "felxim98@example.com"
+},{
+  "_id": {
+    "$oid": "61a41632bba131965cf739bc"
+  },
+  "id": "4",
+  "day": 1,
+  "seat": 26,
+  "client": "Fauna Keithrins",
+  "email": "mefauna312@example.com"
+},{
+  "_id": {
+    "$oid": "61a41632bba131965cf739bd"
+  },
+  "id": "5",
+  "day": 2,
+  "seat": 1,
+  "client": "Felix McManara",
+  "email": "felxim98@example.com"
+},{
+  "_id": {
+    "$oid": "61a41632bba131965cf739be"
+  },
+  "id": "6",
+  "day": 2,
+  "seat": 2,
+  "client": "Molier Lo Celso",
+  "email": "moiler.lo.celso@example.com"
+},{
+  "_id": {
+    "$oid": "61a6b6593b409732142e3e57"
+  },
+  "id": "79e622d8-6af7-4cf9-b5c9-be7ebb078d39",
+  "day": 2,
+  "seat": 2,
+  "client": "Monika Pasztet",
+  "email": "Mpasztet@gmail.com",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a7e1ec3fc5580eec2b8cc4"
+  },
+  "id": "884e3998-66a6-4edc-917c-4e1d48eb560d",
+  "day": 1,
+  "seat": 46,
+  "client": "Marta Pila",
+  "email": "martapila@gmail.com",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a7e1fbe1c5e0091893d4c9"
+  },
+  "id": "cc323ded-66e4-43f7-92d1-09c25827c9ce",
+  "day": 1,
+  "seat": 47,
+  "client": "Marta Pila",
+  "email": "martapila@gmail.com",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a7e33fd0be4565507ec93e"
+  },
+  "id": "191aa3d0-32d7-4b64-bde3-b31ad480f856",
+  "day": 1,
+  "seat": 1,
+  "client": "Grzegorz Głuchowski",
+  "email": "ggrzegorz89@gmail.com",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a7e34bd0be4565507ec93f"
+  },
+  "id": "743fd005-0c32-47ed-bfd3-35d8c30685cc",
+  "day": 1,
+  "seat": 2,
+  "client": "Grzegorz Głuchowski",
+  "email": "ggrzegorz89@gmail.com",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a7e355d0be4565507ec940"
+  },
+  "id": "7461d4df-34a3-4d35-909f-0e109566d16a",
+  "day": 1,
+  "seat": 4,
+  "client": "Grzegorz Głuchowski",
+  "email": "ggrzegorz89@gmail.com",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a7e363d0be4565507ec941"
+  },
+  "id": "99b928c3-ae1c-4f1d-b321-cebe348a7d34",
+  "day": 1,
+  "seat": 5,
+  "client": "Grzegorz Głuchowski",
+  "email": "ggrzegorz89@gmail.com",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a7e36ed0be4565507ec942"
+  },
+  "id": "d59df6a8-3ac7-452f-85af-0cd06737465c",
+  "day": 1,
+  "seat": 6,
+  "client": "Grzegorz Głuchowski",
+  "email": "ggrzegorz89@gmail.com",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a7e375d0be4565507ec943"
+  },
+  "id": "7b90f4ef-3cb8-4357-a2ba-6b4439ca9393",
+  "day": 1,
+  "seat": 7,
+  "client": "Grzegorz Głuchowski",
+  "email": "ggrzegorz89@gmail.com",
+  "__v": 0
+}]
