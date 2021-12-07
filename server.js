@@ -43,17 +43,26 @@ app.use((req, res) => {
 })
 
 // connects our backend code with the database
-mongoose.connect('mongodb+srv://ggrzegorz89:yfVAsYW6CA7kAeJ@ggcluster.3bhz4.mongodb.net/ConcertAPI?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
+
+// polaczenie z DB za pomoca Mongoose z podzialem na tryby servera
+const NODE_ENV = process.env.NODE_ENV;
+let dbUri = '';
+
+if(NODE_ENV === 'production') dbUri = 'mongodb+srv://ggrzegorz89:yfVAsYW6CA7kAeJ@ggcluster.3bhz4.mongodb.net/ConcertAPI?retryWrites=true&w=majority';
+else if(NODE_ENV === 'test') dbUri = 'mongodb://localhost:27017/NewWaveDBtest';
+else dbUri = 'mongodb+srv://ggrzegorz89:yfVAsYW6CA7kAeJ@ggcluster.3bhz4.mongodb.net/ConcertAPI?retryWrites=true&w=majority';
+
+mongoose.connect(dbUri, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 
 db.once('open', () => {
-  console.log('Connected to the database');
+  // console.log('Connected to the database');
 });
 db.on('error', err => console.log('Error ' + err));
 
 // proces.env.PORT - pozwala na pobieranie wartosci portu serwera
-const server = app.listen(process.env.PORT || 8000, () => {
-  console.log('Server is running on port: 8000');
+const server = app.listen(process.env.PORT || '8000', () => {
+  //console.log('Server is running on port: 8000');
 });
 
 const io = socket(server);
@@ -62,3 +71,5 @@ io.on('connection', (socket) => {
   console.log('New socket!!!!');
   app.set('socket', socket);
 });
+
+module.exports = server;
