@@ -47,10 +47,12 @@ app.use((req, res) => {
 // polaczenie z DB za pomoca Mongoose z podzialem na tryby servera
 const NODE_ENV = process.env.NODE_ENV;
 let dbUri = '';
+const user = process.env.userName;
+const password = process.env.userPassword;
 
-if(NODE_ENV === 'production') dbUri = 'mongodb+srv://ggrzegorz89:yfVAsYW6CA7kAeJ@ggcluster.3bhz4.mongodb.net/ConcertAPI?retryWrites=true&w=majority';
+if(NODE_ENV === 'production') dbUri = 'mongodb+srv://' + user + ':' + password + '@ggcluster.3bhz4.mongodb.net/ConcertAPI?retryWrites=true&w=majority';
 else if(NODE_ENV === 'test') dbUri = 'mongodb://localhost:27017/NewWaveDBtest';
-else dbUri = 'mongodb+srv://ggrzegorz89:yfVAsYW6CA7kAeJ@ggcluster.3bhz4.mongodb.net/ConcertAPI?retryWrites=true&w=majority';
+else dbUri = 'mongodb+srv://' + user + ':' + password + '@ggcluster.3bhz4.mongodb.net/ConcertAPI?retryWrites=true&w=majority';
 
 mongoose.connect(dbUri, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
