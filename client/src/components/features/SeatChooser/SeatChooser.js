@@ -35,7 +35,7 @@ class SeatChooser extends React.Component {
     let count = 0;
     tab.map(element => {
       if (element.props.disabled) { count++ };
-      return count;
+      // return count;
     })
     return count;
   }
