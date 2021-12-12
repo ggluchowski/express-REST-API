@@ -1,5 +1,6 @@
 const { v4: uuidv4 } = require('uuid');
 const Seat = require('../models/seat.model');
+const sanitize = require('mongo-sanitize');
 
 exports.getAll = async (req, res) => {
   try {
@@ -21,18 +22,21 @@ exports.getId = async (req, res) => {
 
 exports.post = async (req, res) => {
   try {
-    const { day, seat, client, email } = req.body;
+    // ??? czy ok
+    const { day, seat, client, email } = sanitize(req.body);
     const newSeat = new Seat({ id: uuidv4(), day: day, seat: seat, client: client, email: email });
     const seaty = await Seat.findOne({ day: day, seat: seat });
     if (seaty === null) {
       await newSeat.save();
       const seatAll = await Seat.find();
+
       //https://stackoverflow.com/questions/18856190/use-socket-io-inside-a-express-routes-file
       const socket = req.app.get('socket');
       socket.emit('seatsUpdated', seatAll);
       return res.status(200).json({ message: 'OK' });
     }
     else res.status(400).json({ message: 'The slot is already taken...' });
+
   } catch (err) {
     res.status(500).json({ message: err });
   }

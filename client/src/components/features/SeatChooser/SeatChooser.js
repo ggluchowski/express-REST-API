@@ -7,7 +7,7 @@ import './SeatChooser.scss';
 class SeatChooser extends React.Component {
 
   componentDidMount() {
-    this.socket = io(process.env.PORT || '8000');
+    this.socket = io(process.env.PORT || '8000', '0.0.0.0');
     const { loadSeats, loadSeatsData } = this.props;
     loadSeats();
     this.socket.on('seatsUpdated', async (seats) => await loadSeatsData(seats));
